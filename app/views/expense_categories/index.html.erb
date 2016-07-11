@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Expense Categories</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @expense_categories.each do |expense_category| %>
+      <tr>
+        <td><%= expense_category.title %></td>
+        <td><%= expense_category.description %></td>
+        <td align="center"><%= link_to 'Show', expense_category_expenses_path(expense_category) %></td>
+        <td align="center"><%= link_to 'Edit', edit_expense_category_path(expense_category) %></td>
+        <td align="center"><%= link_to 'Destroy', expense_category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Expense category', new_expense_category_path , class: 'btn btn-default'%>

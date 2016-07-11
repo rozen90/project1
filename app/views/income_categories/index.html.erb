@@ -1,0 +1,51 @@
+<% if user_signed_in? %>
+<p id="notice"><%= notice %></p>
+
+<div class="row">
+<div class="col-md-6">
+<h1>Listing Income Categories</h1>
+
+<table>
+  <thead>
+  </thead>
+
+  <tbody>
+    <% @income_categories.each do |income_category| %>
+      <tr>
+        <td align="center"><%= link_to income_category.title, income_category_incomes_path(income_category) %></td>
+        <td align="center"><%= income_category.description %></td>
+        <td align="center"><%= link_to 'Edit', edit_income_category_path(income_category) %></td>
+        <td align="center"><%= link_to 'Destroy', income_category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+<%= link_to 'New Income category', new_income_category_path , class: 'btn btn-default'%>
+</div>
+
+<div class="col-md-6">
+  <h1>Listing Expenses category</h1>
+
+<table>
+  <thead>
+  </thead>
+
+  <tbody>
+    <% @expense_categories.each do |expense_category| %>
+      <tr>
+        <td align="center"><%= link_to expense_category.title, expense_category_expenses_path(expense_category)%></td>
+        <td align="center"><%= expense_category.description %></td>
+        <td align="center"><%= link_to 'Edit', edit_expense_category_path(expense_category) %></td>
+        <td align="center"><%= link_to 'Destroy', expense_category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Expense category', new_expense_category_path , class: 'btn btn-default'%>
+</div>
+</div>
+<% end %>

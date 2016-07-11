@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @income_category.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @income_category.description %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @income_category.user_id %>
+</p>
+
+<%= link_to 'Edit', edit_income_category_path(@income_category) %> |
+<%= link_to 'Back', income_categories_path %>
