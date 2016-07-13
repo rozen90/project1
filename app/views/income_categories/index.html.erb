@@ -48,4 +48,36 @@
 <%= link_to 'New Expense category', new_expense_category_path , class: 'btn btn-default'%>
 </div>
 </div>
+<div class="row">
+<div class="col-md-6">
+<h1>Search incomes:</h1>
+<%= form_tag("/income_categories/search.xls", method: "post") do %>
+  <%= label_tag(:q, "Initial date:") %>
+  <%= date_select(:userect, :born_on) %>
+  <br>
+  <%= label_tag(:q, "Final date:") %>
+  <%= date_select(:userwe, :born_on) %>
+  <br>
+  <%= label_tag(:q, "Income category:") %>
+  <%= select_tag(:people, options_from_collection_for_select(@income_categories, "id", "title")) %>
+  <br>
+  <%= submit_tag("Search") %>
+<% end %>
+</div>
+<div class="col-md-6">
+<h1>Search expenses:</h1>
+<%= form_tag("/expense_categories/search.xls", method: "post") do %>
+  <%= label_tag(:q, "Initial date:") %>
+  <%= date_select(:userect, :born_on) %>
+  <br>
+  <%= label_tag(:q, "Final date:") %>
+  <%= date_select(:userwe, :born_on) %>
+  <br>
+  <%= label_tag(:q, "Expense category:") %>
+  <%= select_tag(:people, options_from_collection_for_select(@expense_categories, "id", "title")) %>
+  <br>
+  <%= submit_tag("Search") %>
+<% end %>
+</div>
+</div>
 <% end %>

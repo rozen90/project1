@@ -1,6 +1,19 @@
 class IncomeCategoriesController < ApplicationController
   before_action :set_income_category, only: [:show, :edit, :update, :destroy]
 
+  def search
+    d1 = Date.civil(params[:userect]["born_on(1i)"].to_i, params[:userect]["born_on(2i)"].to_i, params[:userect]["born_on(3i)"].to_i) 
+    d2 = Date.civil(params[:userwe]["born_on(1i)"].to_i, params[:userwe]["born_on(2i)"].to_i, params[:userwe]["born_on(3i)"].to_i)
+    income_category = Income.where(income_category_id: params[:people])
+    @s = income_category.where(date: d1..d2)
+
+    respond_to do |format|
+        format.html { }
+        format.csv {send_data @s.to_csv}
+        format.xls #{send_data @s.to_csv(col_sep: "\t") }
+    end
+  end
+
   # GET /income_categories
   # GET /income_categories.json
   def index
@@ -72,4 +85,5 @@ class IncomeCategoriesController < ApplicationController
     def income_category_params
       params.require(:income_category).permit(:title, :description, :user_id)
     end
+
 end

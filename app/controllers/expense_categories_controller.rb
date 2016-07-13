@@ -1,6 +1,19 @@
 class ExpenseCategoriesController < ApplicationController
   before_action :set_expense_category, only: [:show, :edit, :update, :destroy]
 
+  def search
+    d1 = Date.civil(params[:userect]["born_on(1i)"].to_i, params[:userect]["born_on(2i)"].to_i, params[:userect]["born_on(3i)"].to_i) 
+    d2 = Date.civil(params[:userwe]["born_on(1i)"].to_i, params[:userwe]["born_on(2i)"].to_i, params[:userwe]["born_on(3i)"].to_i)
+    expense_category = Expense.where(expense_category_id: params[:people])
+    @s = expense_category.where(date: d1..d2)
+
+    respond_to do |format|
+        format.html { }
+        format.csv {send_data @s.to_csv}
+        format.xls #{send_data @s.to_csv(col_sep: "\t") }
+    end
+  end
+
   # GET /expense_categories
   # GET /expense_categories.json
   def index

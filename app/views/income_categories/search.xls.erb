@@ -1,0 +1,12 @@
+<table border="1">
+  <tr>
+    <th>Date</th>
+    <th>Price</th>
+  </tr>
+  <% @s.each do |s| %>
+    <tr>
+      <th><%= s.date %></th>
+      <th><%= s.price %></th>
+    </tr>
+  <% end %>
+</table>

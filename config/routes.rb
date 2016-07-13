@@ -1,8 +1,15 @@
 Rails.application.routes.draw do
   resources :income_categories do 
+    collection do
+      post 'search'
+      #get 'search'
+    end
     resources :incomes
   end
   resources :expense_categories do
+    collection do
+      post 'search'
+    end
     resources :expenses
   end
   devise_for :users
