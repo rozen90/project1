@@ -2,15 +2,19 @@ class IncomeCategoriesController < ApplicationController
   before_action :set_income_category, only: [:show, :edit, :update, :destroy]
 
   def search
-    d1 = Date.civil(params[:userect]["born_on(1i)"].to_i, params[:userect]["born_on(2i)"].to_i, params[:userect]["born_on(3i)"].to_i) 
-    d2 = Date.civil(params[:userwe]["born_on(1i)"].to_i, params[:userwe]["born_on(2i)"].to_i, params[:userwe]["born_on(3i)"].to_i)
+    d1 = Date.civil(params[:userect]["born_on(1i)"].to_i, 
+                    params[:userect]["born_on(2i)"].to_i, 
+                    params[:userect]["born_on(3i)"].to_i) 
+    d2 = Date.civil(params[:userwe]["born_on(1i)"].to_i, 
+                    params[:userwe]["born_on(2i)"].to_i, 
+                    params[:userwe]["born_on(3i)"].to_i)
     income_category = Income.where(income_category_id: params[:people])
     @s = income_category.where(date: d1..d2)
 
     respond_to do |format|
-        format.html { }
-        format.csv {send_data @s.to_csv}
-        format.xls #{send_data @s.to_csv(col_sep: "\t") }
+      format.html { }
+      format.csv {send_data @s.to_csv}
+      format.xls #{send_data @s.to_csv(col_sep: "\t") }
     end
   end
 
@@ -23,8 +27,7 @@ class IncomeCategoriesController < ApplicationController
 
   # GET /income_categories/1
   # GET /income_categories/1.json
-  def show
-  end
+  def show; end
 
   # GET /income_categories/new
   def new
@@ -32,8 +35,7 @@ class IncomeCategoriesController < ApplicationController
   end
 
   # GET /income_categories/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /income_categories
   # POST /income_categories.json

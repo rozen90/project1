@@ -10,8 +10,7 @@ class ExpensesController < ApplicationController
 
   # GET /expenses/1
   # GET /expenses/1.json
-  def show
-  end
+  def show; end
 
   # GET /expenses/new
   def new
@@ -19,8 +18,7 @@ class ExpensesController < ApplicationController
   end
 
   # GET /expenses/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /expenses
   # POST /expenses.json

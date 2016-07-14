@@ -10,8 +10,7 @@ class IncomesController < ApplicationController
 
   # GET /incomes/1
   # GET /incomes/1.json
-  def show
-  end
+  def show; end
 
   # GET /incomes/new
   def new
@@ -19,8 +18,7 @@ class IncomesController < ApplicationController
   end
 
   # GET /incomes/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /incomes
   # POST /incomes.json

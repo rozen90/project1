@@ -2,7 +2,6 @@ Rails.application.routes.draw do
   resources :income_categories do 
     collection do
       post 'search'
-      #get 'search'
     end
     resources :incomes
   end
