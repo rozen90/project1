@@ -1,6 +1,8 @@
 class Expense < ActiveRecord::Base
   belongs_to :expense_category
 
+  validates :price, numericality: {greater_than: 0}
+
   def self.to_csv(options = {})
     CSV.generate(options) do |csv|
   	  csv << column_names
