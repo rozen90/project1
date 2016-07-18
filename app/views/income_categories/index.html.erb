@@ -15,9 +15,10 @@
 
   <tbody>
     <% @income_categories.each do |income_category| %>
-      <tr>
+      <tr data-income_category_id="<%= income_category.id %>">
         <td align="center"><%= link_to income_category.title, income_category_incomes_path(income_category) %></td>
         <td align="center"><%= income_category.description %></td>
+        <td align="center"><span class="deleteAction">Delete</span></td>
         <td align="center"><%= link_to 'Edit', edit_income_category_path(income_category) %></td>
         <td align="center"><%= link_to 'Destroy', income_category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
