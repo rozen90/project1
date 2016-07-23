@@ -6,7 +6,7 @@ jQuery(function($) {
 			url: '/income_categories/' + $(income_category_tr).attr('data-income_category_id'),
 			type: 'POST',
 			data: { _method: 'DELETE' },
-			success: function() {
+			success: function(data) {
 				$(income_category_tr).fadeOut(200);
 			}
 		  });

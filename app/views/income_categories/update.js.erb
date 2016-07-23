@@ -1,0 +1,6 @@
+$('#thisupdate_income_category_<%= @income_category.id %>').modal('hide');
+
+$('#income_category_<%= @income_category.id %>').fadeOut(500, function(){
+	$(this).replaceWith('<%= j render(@income_category) %>');
+	$(this).fadeIn(500);
+});
