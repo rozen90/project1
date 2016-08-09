@@ -1,0 +1,6 @@
+$('#thisupdate_income_<%= @income.id %>').modal('hide');
+
+$('#income_<%= @income.id %>').fadeOut(500, function(){
+	$(this).replaceWith('<%= j render(@income) %>');
+	$(this).fadeIn(500);
+});

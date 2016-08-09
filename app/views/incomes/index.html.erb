@@ -11,21 +11,14 @@
     </tr>
   </thead>
 
-  <tbody>
-    <% @incomes.each do |income| %>
-      <tr>
-        <td><%= income.date %></td>
-        <td><%= income.price %></td>
-        <td><%= link_to 'Edit', edit_income_category_income_path(@income_category, income) %></td>
-        <td><%= link_to 'Destroy', income_category_income_path(@income_category, income), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
+  <tbody id="incomes_tasks">
+    <%= render @incomes %>
   </tbody>
 </table>
 
 <br>
 
-<%= link_to 'New Income', new_income_category_income_path , class: 'btn btn-default'%>
+<%= link_to 'New Income', new_income_category_income_path , class: 'btn btn-default', id: "new_income_link", remote: true%>
 <br>
 <br>
 <%= link_to 'Back', income_categories_path , class: 'btn btn-default'%>

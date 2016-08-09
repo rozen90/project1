@@ -31,15 +31,8 @@
     </tr>
   </thead>
 
-  <tbody>
-    <% @expense_categories.each do |expense_category| %>
-      <tr>
-        <td align="center"><%= link_to expense_category.title, expense_category_expenses_path(expense_category)%></td>
-        <td align="center"><%= expense_category.description %></td>
-        <td align="center"><%= link_to 'Edit', edit_expense_category_path(expense_category) %></td>
-        <td align="center"><%= link_to 'Destroy', expense_category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
+  <tbody id="incomplete_tasks_expense">
+    <%= render @expense_categories %>
   </tbody>
 </table>
 <br>
@@ -51,7 +44,7 @@
 <%= link_to 'New Income category', new_income_category_path , class: 'btn btn-default', id: "new_link", remote: true %>
 </div>
 <div class="col-md-6">
-<%= link_to 'New Expense category', new_expense_category_path , class: 'btn btn-default'%>
+<%= link_to 'New Expense category', new_expense_category_path , class: 'btn btn-default', id: "new_link_expense", remote: true%>
 </div>
 </div>
 
@@ -66,9 +59,7 @@
   <%= date_select(:userwe, :born_on) %>
   <br>
   <%= label_tag(:q, "Income category:") %>
-  <p id="inc_task">
   <%= select_tag(:people, options_from_collection_for_select(@income_categories, "id", "title")) %>
-  </p>
   <br>
   <%= submit_tag("Search") %>
 <% end %>
@@ -89,6 +80,4 @@
 <% end %>
 </div>
 </div>
-<!-- Button trigger modal -->
-
 <% end %>

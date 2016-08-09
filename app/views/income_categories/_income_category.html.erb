@@ -2,7 +2,7 @@
     <td align="center"><%= link_to income_category.title, income_category_incomes_path(income_category) %></td>
     <td align="center"><%= income_category.description %></td>
     <td align="center"><button type="button" class="btn btn-warning" data-toggle=modal data-target="#thisupdate_income_category_<%= income_category.id %>">Edit</button> </td>
-    <td align="center"><%= link_to 'Destroy', income_category, method: :delete, data: { confirm: 'Are you sure?' }, remote: true %></td>
+    <td align="center"><%= link_to 'Destroy', income_category, method: :delete, data: { confirm: 'Are you sure?' }, remote: true, class: 'btn btn-warning' %></td>
 </tr>
 
 <%= form_for(income_category, method: :patch, remote: true) do |f| %>

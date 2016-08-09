@@ -45,9 +45,11 @@ class ExpenseCategoriesController < ApplicationController
       if @expense_category.save
         format.html { redirect_to income_categories_path, notice: 'Expense category was successfully created.' }
         format.json { render :show, status: :created, location: @expense_category }
+        format.js
       else
         format.html { render :new }
         format.json { render json: @expense_category.errors, status: :unprocessable_entity }
+        format.js
       end
     end
   end
@@ -59,9 +61,11 @@ class ExpenseCategoriesController < ApplicationController
       if @expense_category.update(expense_category_params)
         format.html { redirect_to income_categories_path, notice: 'Expense category was successfully updated.' }
         format.json { render :show, status: :ok, location: @expense_category }
+        format.js
       else
         format.html { render :edit }
         format.json { render json: @expense_category.errors, status: :unprocessable_entity }
+        format.js
       end
     end
   end
@@ -73,6 +77,7 @@ class ExpenseCategoriesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to income_categories_path, notice: 'Expense category was successfully destroyed.' }
       format.json { head :no_content }
+      format.js
     end
   end
 

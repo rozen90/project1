@@ -1,0 +1,6 @@
+$('#thisupdate_expense_category_<%= @expense_category.id %>').modal('hide');
+
+$('#expense_category_<%= @expense_category.id %>').fadeOut(500, function(){
+	$(this).replaceWith('<%= j render(@expense_category) %>');
+	$(this).fadeIn(500);
+});
